@@ -11,11 +11,11 @@ services:
       - PG_PASS=password
       - PG_HOST=172.27.80.1
     volumes:
-      - ./mbdh_backup:/usr/src/app
+      - ./mbdh_app:/usr/src/app
     networks:
-      - app_net
+      - mbdh_appnet
 
 networks:
-  app_net:
-    name: common_net
+  mbdh_appnet:
+    name: mbdh_net
     external: true

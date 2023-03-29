@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  node_db:
+  mbdh_db:
     image: postgres:15.2
     ports:
       - "5432:5432"
@@ -9,13 +9,13 @@ services:
       - PG_DB=mbdh
       - PG_USER=postgres
       - PG_PASS=password
-      - PG_HOST=172.27.80.1
+      - PG_HOST=db-mbdh_db-1
     volumes:
       - ./psql_data:/var/lib/postgresql/data
     networks:
-      - db_net
+      - db_net_1
 
 networks:
-  db_net:
+  db_net_1:
     driver: bridge
-    name: common_net
+    name: mbdh_net

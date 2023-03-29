@@ -1,0 +1,29 @@
+create table hub(
+    id bigserial primary key,
+    h_id varchar(35) not null,
+    time timestamp default current_timestamp,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp
+);
+
+
+create table container (
+    id bigserial primary key,
+    c_id varchar(35) not null,
+    status boolean,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp
+);
+
+create table data(
+    id bigserial primary key,
+    s_id varchar(10) not null,
+    val int,
+    h_id bigint not null,
+    c_id bigint not null,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp,
+    foreign key (h_id) references hub(id),
+    foreign key (c_id) references container(id)
+);
+
