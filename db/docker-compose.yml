@@ -1,19 +1,22 @@
-version: "3.7"
-
+version: "2"
 services:
   mbdh_db:
+    container_name: mbdh_db
     image: postgres:15.2
-    ports:
-      - "5432:5432"
     environment:
-      - PG_DB=mbdh
-      - PG_USER=postgres
-      - PG_PASS=password
-      - PG_HOST=db-mbdh_db-1
+      POSTGRES_DB: mbdh
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      
     volumes:
-      - ./psql_data:/var/lib/postgresql/data
+      - C:\Users\Public\DIP\mqtt_brocker_data_handling\db:/var/lib/postgresql/data1
+    ports:
+      - "3130:5432"
     networks:
       - db_net_1
+
+    # ports:
+    #   - "15430:5432"
 
 networks:
   db_net_1:

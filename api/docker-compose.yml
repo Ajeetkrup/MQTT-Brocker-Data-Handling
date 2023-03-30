@@ -9,9 +9,9 @@ services:
       - PG_DB=mbdh
       - PG_USER=postgres
       - PG_PASS=password
-      - PG_HOST=172.27.80.1
+      - PG_HOST=mbdh_db
     volumes:
-      - ./mbdh_app:/usr/src/app
+      - C:\Users\Public\DIP\mqtt_brocker_data_handling\api:/usr/src/app
     networks:
       - mbdh_appnet
 
